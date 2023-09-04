@@ -12,17 +12,17 @@
 
 NAME = philo
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror
 SOURCE_FILES = main.c arg_parser.c other_utils.c
 
 all:
-    $(CC) $(CFLAGS) $(SOURCE_FILES) -o $(NAME) 
+	$(CC) $(CFLAGS) $(SOURCE_FILES) -o $(NAME) 
 
 clean:
-    rm -f $(NAME)
+	rm -f $(NAME)
 
 fclean: clean
-    rm -f $(NAME)
+	rm -f $(NAME)
 
 re: fclean all
 

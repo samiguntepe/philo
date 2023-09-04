@@ -12,10 +12,9 @@
 
 #include "philo.h"
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-	t_philo *philo;
+	t_philo	philo;
 
-	arg_parser(argv,philo,argc);
-    
+	arg_parser(argv, &philo, argc);
 }

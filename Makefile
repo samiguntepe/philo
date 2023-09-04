@@ -14,15 +14,21 @@ NAME = philo
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 SOURCE_FILES = main.c arg_parser.c other_utils.c
+GREEN	= \033[0;32m
+RED		= \033[0;31m
+Q = \033[m
 
 all:
-	$(CC) $(CFLAGS) $(SOURCE_FILES) -o $(NAME) 
+	@$(CC) $(CFLAGS) $(SOURCE_FILES) -o $(NAME)
+	@echo "$(GREEN)[✓]$(Q)"
 
 clean:
-	rm -f $(NAME)
+	@rm -f $(NAME)
+	@echo "$(RED)[DELETED]$(Q)"
 
 fclean: clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
+	
 
 re: fclean all
 

@@ -15,7 +15,7 @@
 int	ft_atoi(const char *str)
 {
 	int	s;
-
+	
 	s = 0;
 	while (*str >= '0' && *str <= '9')
 	{

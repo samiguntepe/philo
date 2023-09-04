@@ -14,7 +14,9 @@
 
 void	arg_parser(char **arg, t_philo *philo, int argc)
 {
-	if(argc != 5)
-		return (0);
+	(void)(arg);
+	(void)(philo);
+	if (argc < 5 || argc > 6)
+		return ;
 	
 }

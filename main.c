@@ -6,7 +6,7 @@
 /*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 14:27:16 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/09/03 18:30:02 by sguntepe         ###   ########.fr       */
+/*   Updated: 2023/09/05 16:35:49 by sguntepe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,5 +16,9 @@ int	main(int argc, char **argv)
 {
 	t_philo	philo;
 
+	if (argc < 5 || argc > 6)
+		return (0);
 	arg_parser(argv, &philo, argc);
+	if (number_of_philo_control(&philo, argc) == 0)
+		return (0);
 }

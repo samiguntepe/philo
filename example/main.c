@@ -2,7 +2,7 @@
 #include <pthread.h>
 
 // Paylaşılan değişken
-int shared_variable = 0;
+int shared_variable = 100;
 
 // Mutex tanımlama
 pthread_mutex_t mutex;

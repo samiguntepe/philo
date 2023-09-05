@@ -1,0 +1,21 @@
+philo kodu
+filo kurallarının aşağıdaki gerekliliklere uygun olduğundan emin olun ve açıklama isteyin
+Filozof başına bir konu olup olmadığını kontrol edin.
+Filozof başına yalnızca bir çatal olup olmadığını kontrol edin.
+- Çatal başına bir muteks olduğunu ve bunun çatal değerini kontrol etmek veya değiştirmek için kullanıldığını kontrol edin
+- Çıkışların asla karışmadığını kontrol edin
+- Bir filozofun ölümünün nasıl doğrulandığını ve bir filozofun ölmesini önlemek için bir muteks olup olmadığını kontrol edin
+ve aynı anda yemeye başlamak
+
+philo test
+- 200'den fazla filozof ile test yapmayın.
+- time_to_die veya time_to_eat veya time_to_sleep 60 ms'den daha düşük değerlere ayarlıyken test etmeyin
+- Test 1 800 200 200. Filozof yemek yememeli ve ölmelidir.
+- Test 5 800 200 200. Hiçbir filozof ölmemelidir.
+- Test 5 800 200 200 7. Hiçbir filozof ölmemeli ve simülasyon her filozof öldüğünde durmalıdır.
+Aplan al lenst 7 limas var
+- es 4 40 00 00. Hiçbir filozof ölmemeli
+- Test 4 310 200 100. Bir filozof ölmelidir.
+2 filozofla test edin ve farklı zamanları kontrol edin: 10 ms'den fazla geciken bir ölüm kabul edilemez
+- Tüm gereksinimleri doğrulamak için seçtiğiniz herhangi bir değerle test edin. Filozofların doğru zamanda öldüğünden emin olun.
+çatal falan çalmazlar,

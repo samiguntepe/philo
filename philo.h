@@ -6,7 +6,7 @@
 /*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 14:27:23 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/09/05 16:36:36 by sguntepe         ###   ########.fr       */
+/*   Updated: 2023/09/09 21:06:25 by sguntepe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ typedef struct s_philo
 	int		time_to_eat;
 	int		time_to_sleep;
 	int		number_of_must_eat;
+	int		number_of_fork;
 }	t_philo;
 
 int		ft_atoi(const char *str);

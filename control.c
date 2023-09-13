@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   control.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
+/*   By: sguntepe <sguntepe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 13:11:32 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/09/09 21:06:01 by sguntepe         ###   ########.fr       */
+/*   Updated: 2023/09/13 21:12:46 by sguntepe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,3 +29,8 @@ int	number_of_philo_control(t_philo *philo, int argc)
 	}
 	return (1);
 }
+
+// void	check_arg(t_philo *philo)
+// {
+// 	if (philo->number_of_philosophers > 200)
+// }

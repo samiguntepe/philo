@@ -6,7 +6,7 @@
 /*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 14:27:23 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/09/14 19:48:06 by sguntepe         ###   ########.fr       */
+/*   Updated: 2023/09/14 20:12:43 by sguntepe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ typedef struct s_philo
 	int		time_to_sleep;
 	int		number_of_must_eat;
 	int		number_of_fork;
+	int		num;
 }	t_philo;
 
 typedef struct s_sim

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   arg_parser.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sguntepe <sguntepe@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 23:28:07 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/09/13 22:31:59 by sguntepe         ###   ########.fr       */
+/*   Updated: 2023/09/14 19:49:07 by sguntepe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,4 +20,5 @@ void	arg_parser(char **arg, t_philo *philo, int argc)
 	philo->time_to_sleep = ft_atoi(arg[4]);
 	if (argc == 6)
 		philo->number_of_must_eat = ft_atoi(arg[5]);
+	
 }

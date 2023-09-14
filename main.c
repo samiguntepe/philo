@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sguntepe <sguntepe@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 14:27:16 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/09/13 22:35:51 by sguntepe         ###   ########.fr       */
+/*   Updated: 2023/09/14 18:49:01 by sguntepe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,17 @@
 int	main(int argc, char **argv)
 {
 	t_sim	sim;
+	uint64_t time;
 	sim.philos = malloc(sizeof(t_philo)); 
 	if (argc < 5 || argc > 6)
 		return (0);
-	
+	time = get_time();
 	arg_parser(argv, sim.philos, argc);
 	if (number_of_philo_control(sim.philos, argc) == 0)
 		return (0);
-	sim.start_time = 0;
-	sim.start_time = get_time(&sim);
-	printf("%ld",sim.start_time);
+
+	init_threads(&sim, sim.philos->number_of_philosophers);
+
+	// exit(1);
+
 }

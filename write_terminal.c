@@ -1,29 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   other_utils.c                                      :+:      :+:    :+:   */
+/*   write_terminal.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/02 23:28:05 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/09/14 16:54:33 by sguntepe         ###   ########.fr       */
+/*   Created: 2023/09/14 16:57:29 by sguntepe          #+#    #+#             */
+/*   Updated: 2023/09/14 16:57:53 by sguntepe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int	ft_atoi(const char *str)
-{
-	int	s;
-
-	s = 0;
-	if (*str == '-')
-		return (0);
-	while (*str >= '0' && *str <= '9')
-	{
-		s = (s * 10);
-		s = s + (*str - '0');
-		str++;
-	}
-	return (s);
-}
+// void    write_terminal()
+// {
+    
+// }

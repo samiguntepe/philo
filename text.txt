@@ -19,3 +19,49 @@ Aplan al lenst 7 limas var
 2 filozofla test edin ve farklı zamanları kontrol edin: 10 ms'den fazla geciken bir ölüm kabul edilemez
 - Tüm gereksinimleri doğrulamak için seçtiğiniz herhangi bir değerle test edin. Filozofların doğru zamanda öldüğünden emin olun.
 çatal falan çalmazlar,
+
+
+
+
+İşte bu ödevi başarmak istiyorsanız bilmeniz gerekenler:
+- Bir veya daha fazla filozof yuvarlak bir masada oturuyor.
+Masanın ortasında büyük bir kase spagetti vardır.
+- Filozoflar dönüşümlü olarak yemek yer, düşünür ya da uyurlar.
+Yemek yerken ne düşünürler ne de uyurlar; düşünürken ne yemek yerler ne de uyurlar;
+Ve tabii ki uyurken de ne yemek yiyorlar ne de düşünüyorlar.
+- Masanın üzerinde çatallar da vardır. Filozoflar kadar çok çatal vardır.
+- Spagettiyi tek bir çatalla servis etmek ve yemek çok zahmetli olduğu için
+Filozof yemek için sağ ve sol çatallarını alır, her iki eline de birer tane.
+- Bir filozof yemeğini bitirdiğinde çatallarını masaya geri koyar ve uyumaya başlar. Uyandıklarında tekrar düşünmeye başlarlar. Bir filozof açlıktan öldüğünde simülasyon durur.
+- Her filozofun yemek yemesi gerekir ve asla açlıktan ölmemelidir.
+- Filozoflar birbirleriyle konuşmazlar.
+- Filozoflar başka bir filozofun ölmek üzere olup olmadığını bilmezler.
+- Filozofların ölmekten kaçınması gerektiğini söylemeye gerek yok!
+
+Zorunlu bölüm için bir program ve bonus bölümü için başka bir program yazmalısınız (eğer bonus bölümünü yapmaya karar verirseniz). Her ikisi de aşağıdaki kurallara uymak zorundadır:
+- Global değişkenler yasaktır!
+- Program(lar)ınız aşağıdaki argümanları almalıdır: number_of_philosophers time_to_die time_to_eat time_to_sleep [number_of_times_each_philosopher_must_eat]
+◦ number_of_philosophers: Filozof sayısı ve ayrıca çatal sayısı.
+◦ time_to_die (milisaniye cinsinden): Eğer bir filozof son yemeğinin başlangıcından veya simülasyonun başlangıcından bu yana time_to_die milisaniye yemeye başlamadıysa ölür.
+◦ time_to_eat (milisaniye cinsinden): Bir filozofun yemek yemesi için geçen süre. Bu süre zarfında iki çatal tutmaları gerekecektir.
+◦ time_to_sleep (milisaniye cinsinden): Bir filozofun uyumak için harcayacağı süre.
+◦ number_of_times_each_philosopher_must_eat (isteğe bağlı argüman): Tüm filozoflar en az number_of_times_each_philosopher_must_eat kez yemek yemişse simülasyon durur. Belirtilmezse, bir filozof öldüğünde simülasyon durur.
+- Her filozofun 1 ile filozof_sayısı arasında değişen bir numarası vardır.
+- Filozof sayısı 1, filozof sayısı_of_filozof'un yanında oturur. Diğer herhangi bir filozof numarası N, filozof numarası N - 1 ile filozof numarası N + 1 arasında yer alır.
+
+Programınızın günlükleri hakkında:
+- Bir filozofun herhangi bir durum değişikliği aşağıdaki gibi biçimlendirilmelidir:
+◦ timestamp_in_ms X bir çatal aldı ◦ timestamp_in_ms X yemek yiyor
+◦ timestamp_in_ms X uyuyor
+◦ timestamp_in_ms X düşünüyor
+◦ timestamp_in_ms X öldü
+timestamp_in_ms öğesini milisaniye cinsinden geçerli zaman damgası ile değiştirin
+ve X ile filozof numarası.
+- Görüntülenen bir durum mesajı başka bir mesajla karıştırılmamalıdır.
+- Bir filozofun öldüğünü bildiren bir mesaj, filozofun gerçek ölümünden en fazla 10 ms sonra görüntülenmelidir.
+- Tekrar ediyorum, filozoflar ölmekten kaçınmalıdır!
+
+Zorunlu bölüm için özel kurallar şunlardır:
+- Her filozof bir iplik olmalıdır.
+- Her filozof çifti arasında bir çatal vardır. Bu nedenle, birden fazla filozof varsa, her filozofun sol tarafında bir çatal ve sağ tarafında bir çatal vardır. Eğer sadece bir filozof varsa, masada sadece bir çatal olmalıdır.
+- Filozofların çatalları çoğaltmasını önlemek için, çatalların durumunu her biri için bir muteks ile korumalısınız.

@@ -1,29 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   loop.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/31 14:27:16 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/09/18 16:29:15 by sguntepe         ###   ########.fr       */
+/*   Created: 2023/09/18 15:01:55 by sguntepe          #+#    #+#             */
+/*   Updated: 2023/09/18 15:02:46 by sguntepe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int	main(int argc, char **argv)
+void    eat()
 {
-	t_sim	sim;
-	uint64_t time;
-	sim.philos = malloc(sizeof(t_philo));
-	if (argc < 5 || argc > 6)
-		return (0);
-	time = get_time();
-	arg_parser(argv, sim.philos, argc);
-	if (number_of_philo_control(sim.philos, argc) == 0)
-		return (0);
-	
-	init_threads(&sim, sim.philos->number_of_philosophers);
-
+    
 }

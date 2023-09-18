@@ -6,14 +6,14 @@
 #    By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/03 18:32:40 by sguntepe          #+#    #+#              #
-#    Updated: 2023/09/14 18:50:37 by sguntepe         ###   ########.fr        #
+#    Updated: 2023/09/18 15:02:16 by sguntepe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = philo
 CC = gcc
 CFLAGS = #-Wall -Wextra -Werror
-SOURCE_FILES = main.c arg_parser.c other_utils.c control.c time.c inits.c
+SOURCE_FILES = main.c arg_parser.c other_utils.c control.c time.c inits.c loop.c
 GREEN	= \033[0;32m
 RED		= \033[0;31m
 CODE = \033[m

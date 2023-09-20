@@ -6,7 +6,7 @@
 /*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 17:04:48 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/09/20 18:10:24 by sguntepe         ###   ########.fr       */
+/*   Updated: 2023/09/20 18:52:37 by sguntepe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ void	init_philo(t_sim *sim)
 void	inits(t_sim *sim)
 {
 	init_threads_fork(sim, sim->philos->number_of_philosophers);
-	exit(0);
 	init_philo(sim);
 }
 

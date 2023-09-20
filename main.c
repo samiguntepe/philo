@@ -6,7 +6,7 @@
 /*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 14:27:16 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/09/20 18:13:04 by sguntepe         ###   ########.fr       */
+/*   Updated: 2023/09/20 18:15:55 by sguntepe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,4 @@ int	main(int argc, char **argv)
 		printf("%d\n",sim.philos[i].num);
 		i++;
 	}
-
 }

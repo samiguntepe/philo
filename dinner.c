@@ -6,14 +6,19 @@
 /*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 18:48:18 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/09/20 20:01:44 by sguntepe         ###   ########.fr       */
+/*   Updated: 2023/09/24 16:35:53 by sguntepe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void	start_dinner(t_sim *sim)
+void	*dinner(void *arg)
 {
-	eat(sim, 1);
+	t_philo	*philo;
 	
+	philo = (t_philo *)arg;
+
+	eat(philo);
+	
+	return (NULL);
 }

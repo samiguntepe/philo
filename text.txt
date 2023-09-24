@@ -1,4 +1,4 @@
-philo kodu
+ philo kodu
 filo kurallarının aşağıdaki gerekliliklere uygun olduğundan emin olun ve açıklama isteyin
 Filozof başına bir konu olup olmadığını kontrol edin.
 Filozof başına yalnızca bir çatal olup olmadığını kontrol edin.

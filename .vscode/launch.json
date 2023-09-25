@@ -9,7 +9,7 @@
 			"request": "launch",
 			"name": "Debug",
 			"program": "/Users/sguntepe/Desktop/philo/philo",
-			"args": [],
+			"args": ["5" ,"800", "200" ,"200", "7"],
 			"cwd": "${workspaceFolder}"
 		}
 	]

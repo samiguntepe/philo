@@ -6,7 +6,7 @@
 /*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 18:48:18 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/09/24 16:35:53 by sguntepe         ###   ########.fr       */
+/*   Updated: 2023/09/25 20:40:28 by sguntepe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 void	*dinner(void *arg)
 {
-	t_philo	*philo;
+	t_arg *args;
 	
-	philo = (t_philo *)arg;
+	args = (t_arg *)arg;
 
-	eat(philo);
+	eat(args);
 	
 	return (NULL);
 }

@@ -6,7 +6,7 @@
 /*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 23:28:05 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/09/25 19:35:14 by sguntepe         ###   ########.fr       */
+/*   Updated: 2023/09/25 20:19:04 by sguntepe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	ft_atoi(const char *str)
 {
 	int	s;
-
+	
 	s = 0;
 	while (*str >= '0' && *str <= '9')
 	{

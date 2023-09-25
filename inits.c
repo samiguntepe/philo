@@ -6,7 +6,7 @@
 /*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 17:04:48 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/09/25 19:35:44 by sguntepe         ###   ########.fr       */
+/*   Updated: 2023/09/25 20:39:37 by sguntepe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ void	init_threads_fork(t_arg *args, int philo_count)
 	while (i < philo_count)
 	{
 		args->forks->fork = malloc(sizeof(pthread_mutex_t));
-		pthread_create(&args->philos[i].thread, NULL, &dinner, args);
+		
+		pthread_create(&args->philos[i].thread, NULL, &dinner, &args[i]);
 		pthread_join(args->philos[i].thread, NULL);
 		pthread_mutex_init(args->forks->fork, NULL);
 		i++;

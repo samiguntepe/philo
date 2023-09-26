@@ -6,7 +6,7 @@
 /*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 17:04:48 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/09/25 20:39:37 by sguntepe         ###   ########.fr       */
+/*   Updated: 2023/09/26 10:32:31 by sguntepe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,24 +29,25 @@ void	init_threads_fork(t_arg *args, int philo_count)
 	}
 }
 
-void	init_philo(t_philo *philo)
+void	init_philo(t_arg *args)
 {
 	int	philo_count;
 	int	i;
 	
-	philo_count = philo->number_of_philosophers;
+	philo_count = args->philos->number_of_philosophers;
 	i = 0;
 	while (i < philo_count)
 	{
-		philo[i].id = (i + 1);
-		philo[i].fid = (i);
-		philo[i].thread = malloc(sizeof(pthread_t) * philo_count);
+		args[i].philos->id = (i + 1);
+		args[i].philos->fid = i;
+		args[i].philos->thread = malloc(sizeof(pthread_t));
 		i++;
 	}
 }
 
 void	inits(t_arg	*args)
 {
-	init_philo(args->philos);
+	init_philo(args);
 	init_threads_fork(args, args->philos->number_of_philosophers);
+	
 }

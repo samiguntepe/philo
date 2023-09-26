@@ -6,7 +6,7 @@
 /*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 14:27:23 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/09/26 10:29:48 by sguntepe         ###   ########.fr       */
+/*   Updated: 2023/09/26 18:04:37 by sguntepe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ typedef struct s_forks
 
 typedef struct s_philo
 {
-	t_fork			*forks;
 	pthread_t		thread;
 	uint64_t 		time;
 	int				number_of_philosophers;
@@ -52,7 +51,10 @@ typedef struct s_arg
 {
 	t_philo	*philos;
 	t_fork	*forks;
+	pthread_mutex_t	write;
+	
 }	t_arg;
+
 
 uint64_t	get_time(void);
 int			ft_atoi(const char *str);
@@ -61,7 +63,7 @@ void		arg_parser(char **argv, t_arg *args, int argc);
 void		init_threads_fork(t_arg *args, int philo_count);
 void		init_philo(t_arg *args);
 void		inits(t_arg	*args);
-void		eat(t_arg *args);
+void		eat(t_arg *args, int phid, int fkid);
 void		*dinner(void *arg);
 void    	write_term(int philo_num, int ans);
 

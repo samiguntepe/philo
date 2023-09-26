@@ -6,7 +6,7 @@
 /*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 23:28:07 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/09/25 20:35:23 by sguntepe         ###   ########.fr       */
+/*   Updated: 2023/09/26 15:07:55 by sguntepe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	arg_parser(char **argv, t_arg *args, int argc)
 	i = 0;
 	while (i < philo_count)
 	{
-		args[i].philos = malloc(sizeof(t_philo) * philo_count);
+		args[i].philos = malloc(sizeof(t_philo));
 		i++;
 	}
 	

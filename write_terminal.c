@@ -6,16 +6,16 @@
 /*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 16:57:29 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/09/27 19:40:25 by sguntepe         ###   ########.fr       */
+/*   Updated: 2023/09/27 20:19:34 by sguntepe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void    write_term(int philo_num, int ans, t_arg *args)
+void    write_term(int philo_num, int ans, t_philo *philos)
 {
-	args->time = get_time() - args->first_time;
-	printf(SPC"%llu ms"END, args->time);
+	pthread_mutex_lock(&philos->args->write);
+	printf(SPC"%llu ms"END, get_time());
 	printf(PURPLE" %d"END, philo_num);
 	if (ans == 1)
 		printf(" has taken a fork");
@@ -28,5 +28,6 @@ void    write_term(int philo_num, int ans, t_arg *args)
 	else if (ans == 5)
 		printf(RED" died"END);
 	printf("\n");
+	pthread_mutex_unlock(&philos->args->write);
 	
 }

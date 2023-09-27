@@ -6,7 +6,7 @@
 /*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 17:04:48 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/09/27 18:26:23 by sguntepe         ###   ########.fr       */
+/*   Updated: 2023/09/27 19:57:11 by sguntepe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ void	init_philo(t_arg *args, t_philo *philos)
 		philos[i].args = args;
 		i++;
 	}
+	philos[i-1].right_f = 0;
 }
 
 void	inits(t_arg	*args, t_philo *philos)

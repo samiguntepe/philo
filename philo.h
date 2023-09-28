@@ -6,7 +6,7 @@
 /*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 14:27:23 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/09/27 20:18:23 by sguntepe         ###   ########.fr       */
+/*   Updated: 2023/09/28 13:16:30 by sguntepe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,13 @@ typedef struct s_arg
 	int				time_to_sleep;
 	pthread_mutex_t	*forks;
 	pthread_mutex_t	write;
+	long			first_time;
+	struct timeval	time;
 }	t_arg;
 
 typedef struct s_philo
 {
 	pthread_t		thread;
-	uint64_t 		time;
 	int				left_f;
 	int				right_f;
 	int				id;
@@ -50,7 +51,7 @@ typedef struct s_philo
 }	t_philo;
 
 
-uint64_t	get_time(void);
+long		get_time(t_arg *args);
 int			ft_atoi(const char *str);
 int			arg_control(t_arg *args, int argc);
 void		arg_parser(char **argv, t_arg *args, int argc);

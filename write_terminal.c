@@ -6,16 +6,15 @@
 /*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 16:57:29 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/09/28 13:18:45 by sguntepe         ###   ########.fr       */
+/*   Updated: 2023/09/28 13:41:45 by sguntepe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void    write_term(int philo_num, int ans, t_philo *philos)
+void	write_term(int philo_num, int ans, t_philo *philos)
 {
 	pthread_mutex_lock(&philos->args->write);
-	
 	printf(SPC"%ld ms"END, get_time(philos->args) - philos->args->first_time);
 	printf(PURPLE" %d"END, philo_num);
 	if (ans == 1)
@@ -30,5 +29,4 @@ void    write_term(int philo_num, int ans, t_philo *philos)
 		printf(RED" died"END);
 	printf("\n");
 	pthread_mutex_unlock(&philos->args->write);
-	
 }

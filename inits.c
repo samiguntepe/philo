@@ -6,7 +6,7 @@
 /*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 17:04:48 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/09/28 12:06:28 by sguntepe         ###   ########.fr       */
+/*   Updated: 2023/09/28 14:33:42 by sguntepe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	init_threads_fork(t_arg *args, t_philo *philos, int philo_count)
 {
 	int	i;
-	
+
 	i = 0;
 	args->forks = malloc(sizeof(pthread_mutex_t) * philo_count);
 	pthread_mutex_init(&args->write, NULL);
@@ -27,7 +27,7 @@ void	init_threads_fork(t_arg *args, t_philo *philos, int philo_count)
 	i = 0;
 	while (i < philo_count)
 	{
-		pthread_create(&philos[i].thread, NULL, &dinner, &philos[i]);	
+		pthread_create(&philos[i].thread, NULL, &dinner, &philos[i]);
 		i++;
 	}
 	i = 0;
@@ -42,18 +42,18 @@ void	init_philo(t_arg *args, t_philo *philos)
 {
 	int		philo_count;
 	int		i;
-	
+
 	philo_count = args->number_of_philosophers;
 	i = 0;
 	while (i < philo_count)
 	{
-		philos[i].id = (i + 1);
+		philos[i].id = (i +1);
 		philos[i].left_f = i;
-		philos[i].right_f = i + 1;
+		philos[i].right_f = i +1;
 		philos[i].args = args;
 		i++;
 	}
-	philos[i-1].right_f = 0;
+	philos[i -1].right_f = 0;
 }
 
 void	inits(t_arg	*args, t_philo *philos)

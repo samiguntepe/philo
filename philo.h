@@ -6,7 +6,7 @@
 /*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 14:27:23 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/09/28 13:16:30 by sguntepe         ###   ########.fr       */
+/*   Updated: 2023/09/28 14:34:52 by sguntepe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,6 @@ typedef struct s_philo
 	int				id;
 	t_arg			*args;
 }	t_philo;
-
 
 long		get_time(t_arg *args);
 int			ft_atoi(const char *str);

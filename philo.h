@@ -6,7 +6,7 @@
 /*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 14:27:23 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/09/28 14:34:52 by sguntepe         ###   ########.fr       */
+/*   Updated: 2023/09/29 19:32:07 by sguntepe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,11 @@ typedef struct s_arg
 	int				time_to_sleep;
 	pthread_mutex_t	*forks;
 	pthread_mutex_t	write;
+	pthread_mutex_t	end;
 	long			first_time;
+	int				died;
 	struct timeval	time;
+	long			last_t;
 }	t_arg;
 
 typedef struct s_philo
@@ -47,6 +50,8 @@ typedef struct s_philo
 	int				left_f;
 	int				right_f;
 	int				id;
+	int				life;
+	long			last_eat;
 	t_arg			*args;
 }	t_philo;
 
@@ -57,8 +62,10 @@ void		arg_parser(char **argv, t_arg *args, int argc);
 void		init_threads_fork(t_arg *args, t_philo *philos, int philo_count);
 void		init_philo(t_arg *args, t_philo *philos);
 void		inits(t_arg	*args, t_philo *philos);
-void		eat(t_philo *philos, int phid);
+void		eating(t_philo *philos, int phid);
 void		*dinner(void *arg);
 void		write_term(int philo_num, int ans, t_philo *philos);
+void		life_control(t_philo *philos);
+int			view(t_philo *philos);
 
 #endif

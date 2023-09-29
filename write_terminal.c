@@ -6,7 +6,7 @@
 /*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 16:57:29 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/09/28 13:41:45 by sguntepe         ###   ########.fr       */
+/*   Updated: 2023/09/29 16:54:40 by sguntepe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 void	write_term(int philo_num, int ans, t_philo *philos)
 {
 	pthread_mutex_lock(&philos->args->write);
-	printf(SPC"%ld ms"END, get_time(philos->args) - philos->args->first_time);
+	philos->args->last_t = get_time(philos->args) - philos->args->first_time;
+	printf(SPC"%ld ms"END, philos->args->last_t);
 	printf(PURPLE" %d"END, philo_num);
 	if (ans == 1)
 		printf(" has taken a fork");

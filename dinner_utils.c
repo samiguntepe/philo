@@ -6,7 +6,7 @@
 /*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 15:01:55 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/09/29 17:08:23 by sguntepe         ###   ########.fr       */
+/*   Updated: 2023/10/07 15:29:14 by sguntepe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	eating(t_philo *philos, int phid)
 	
 	usleep(philos->args->time_to_eat * 1000);
 	philos->last_eat = philos->args->last_t + philos->args->time_to_eat;
-	printf("%d : %ld\n",philos->id,philos->last_eat);
+	philos->eat_count++;
 	pthread_mutex_unlock(&philos->args->forks[philos->left_f]);
 	pthread_mutex_unlock(&philos->args->forks[philos->right_f]);
 }

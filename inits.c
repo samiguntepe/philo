@@ -6,7 +6,7 @@
 /*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 17:04:48 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/09/29 20:23:40 by sguntepe         ###   ########.fr       */
+/*   Updated: 2023/10/07 15:47:44 by sguntepe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ void	init_philo(t_arg *args, t_philo *philos)
 		philos[i].id = (i +1);
 		philos[i].left_f = i;
 		philos[i].right_f = i +1;
+		philos[i].eat_count = 0;
 		philos[i].args = args;
 		i++;
 	}
@@ -58,6 +59,12 @@ void	init_philo(t_arg *args, t_philo *philos)
 
 void	inits(t_arg	*args, t_philo *philos)
 {
+	pthread_t	tview;
+
+	args->died = 0;
+	args->full = 0;
 	init_philo(args, philos);
 	init_threads_fork(args, philos, args->number_of_philosophers);
+	pthread_create(&tview, NULL, view, philos);
+	pthread_join(tview, NULL);
 }

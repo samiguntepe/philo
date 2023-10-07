@@ -6,7 +6,7 @@
 /*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 14:27:23 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/09/29 19:32:07 by sguntepe         ###   ########.fr       */
+/*   Updated: 2023/10/07 15:48:06 by sguntepe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ typedef struct s_arg
 	pthread_mutex_t	*forks;
 	pthread_mutex_t	write;
 	pthread_mutex_t	end;
+	int				full;
 	long			first_time;
 	int				died;
 	struct timeval	time;
@@ -50,9 +51,10 @@ typedef struct s_philo
 	int				left_f;
 	int				right_f;
 	int				id;
-	int				life;
+	int				eat_count;
 	long			last_eat;
 	t_arg			*args;
+	
 }	t_philo;
 
 long		get_time(t_arg *args);
@@ -66,6 +68,6 @@ void		eating(t_philo *philos, int phid);
 void		*dinner(void *arg);
 void		write_term(int philo_num, int ans, t_philo *philos);
 void		life_control(t_philo *philos);
-int			view(t_philo *philos);
+void		*view(void *arg);
 
 #endif

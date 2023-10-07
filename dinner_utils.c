@@ -6,7 +6,7 @@
 /*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 15:01:55 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/10/07 18:50:54 by sguntepe         ###   ########.fr       */
+/*   Updated: 2023/10/07 20:46:20 by sguntepe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	wait_time(t_philo *philos, int wait_time)
 	long time;
 
 	time = get_time(philos->args);
-	while (1)
+	while (!(philos->args->died))
 	{
 		usleep(40);
 		if (get_time(philos->args) - time >= wait_time)

@@ -6,7 +6,7 @@
 /*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 17:04:48 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/10/07 18:11:17 by sguntepe         ###   ########.fr       */
+/*   Updated: 2023/10/07 21:00:04 by sguntepe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void	init_threads(t_philo *philos, int philo_count)
 		pthread_join(philos[i].thread, NULL);
 		i++;
 	}
+	philos->args->died = 1;
 	pthread_join(tview, NULL);
 }
 
@@ -47,6 +48,7 @@ void	init_philo(t_arg *args, t_philo *philos)
 		philos[i].right_f = i +1;
 		philos[i].eat_count = 0;
 		philos[i].args = args;
+		philos[i].last_eat = get_time(args);
 		i++;
 	}
 	philos[i -1].right_f = 0;

@@ -6,7 +6,7 @@
 /*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 13:11:32 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/10/07 14:38:39 by sguntepe         ###   ########.fr       */
+/*   Updated: 2023/10/07 17:35:42 by sguntepe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,4 @@ int	arg_control(t_arg *args, int argc)
 			return (0);
 	}
 	return (1);
-}
-
-void	life_control(t_philo *philos)
-{
-	if (get_time(philos->args) - philos->args->first_time > philos->args->time_to_die)
-	{
-		philos->args->died = 1;	
-		write_term(philos->id, 5, philos);
-	}
 }

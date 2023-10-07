@@ -6,36 +6,31 @@
 /*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 17:04:48 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/10/07 15:47:44 by sguntepe         ###   ########.fr       */
+/*   Updated: 2023/10/07 18:11:17 by sguntepe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void	init_threads_fork(t_arg *args, t_philo *philos, int philo_count)
+void	init_threads(t_philo *philos, int philo_count)
 {
-	int	i;
+	pthread_t	tview;
+	int			i;
 
-	i = 0;
-	args->forks = malloc(sizeof(pthread_mutex_t) * philo_count);
-	pthread_mutex_init(&args->write, NULL);
-	while (i < philo_count)
-	{
-		pthread_mutex_init(&args->forks[i], NULL);
-		i++;
-	}
 	i = 0;
 	while (i < philo_count)
 	{
 		pthread_create(&philos[i].thread, NULL, &dinner, &philos[i]);
 		i++;
 	}
+	pthread_create(&tview, NULL, view, philos);
 	i = 0;
 	while (i < philo_count)
 	{
 		pthread_join(philos[i].thread, NULL);
 		i++;
 	}
+	pthread_join(tview, NULL);
 }
 
 void	init_philo(t_arg *args, t_philo *philos)
@@ -57,14 +52,24 @@ void	init_philo(t_arg *args, t_philo *philos)
 	philos[i -1].right_f = 0;
 }
 
+void	init_forks(t_arg *args, int philo_count)
+{
+	int	i;
+
+	args->forks = malloc(sizeof(pthread_mutex_t) * philo_count);
+	pthread_mutex_init(&args->write, NULL);
+	i = 0;
+	while (i < philo_count)
+	{
+		pthread_mutex_init(&args->forks[i], NULL);
+		i++;
+	}
+}
 void	inits(t_arg	*args, t_philo *philos)
 {
-	pthread_t	tview;
-
 	args->died = 0;
 	args->full = 0;
 	init_philo(args, philos);
-	init_threads_fork(args, philos, args->number_of_philosophers);
-	pthread_create(&tview, NULL, view, philos);
-	pthread_join(tview, NULL);
+	init_forks(args, args->number_of_philosophers);
+	init_threads(philos, args->number_of_philosophers);
 }

@@ -6,7 +6,7 @@
 /*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 14:27:23 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/10/07 15:48:06 by sguntepe         ###   ########.fr       */
+/*   Updated: 2023/10/07 18:37:18 by sguntepe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,13 +61,15 @@ long		get_time(t_arg *args);
 int			ft_atoi(const char *str);
 int			arg_control(t_arg *args, int argc);
 void		arg_parser(char **argv, t_arg *args, int argc);
-void		init_threads_fork(t_arg *args, t_philo *philos, int philo_count);
+void		init_threads(t_philo *philos, int philo_count);
 void		init_philo(t_arg *args, t_philo *philos);
+void		init_forks(t_arg *args, int philo_count);
 void		inits(t_arg	*args, t_philo *philos);
-void		eating(t_philo *philos, int phid);
+void		eating(t_philo *philos);
 void		*dinner(void *arg);
 void		write_term(int philo_num, int ans, t_philo *philos);
-void		life_control(t_philo *philos);
 void		*view(void *arg);
+int			check_food(t_philo *philos);
+void		wait_time(t_philo *philos, int wait_time);
 
 #endif

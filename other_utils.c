@@ -6,7 +6,7 @@
 /*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 23:28:05 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/10/07 21:06:52 by sguntepe         ###   ########.fr       */
+/*   Updated: 2023/10/08 17:20:36 by sguntepe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,11 @@ int	check_food(t_philo *philos)
 			if (philos[i].eat_count >= philos->args->number_of_must_eat)
 				philos->args->full++;
 			i++;
+		}
+		if (philos->args->full >= philos->args->number_of_philosophers)
+		{
+			philos->args->died = 1;
+			return (1);
 		}
 	}
 	return (0);

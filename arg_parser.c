@@ -6,7 +6,7 @@
 /*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 23:28:07 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/09/28 14:31:49 by sguntepe         ###   ########.fr       */
+/*   Updated: 2023/10/08 16:19:15 by sguntepe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,6 @@
 
 void	arg_parser(char **argv, t_arg *args, int argc)
 {
-	int	i;
-
-	i = 0;
 	args->number_of_philosophers = ft_atoi(argv[1]);
 	args->time_to_die = ft_atoi(argv[2]);
 	args->time_to_sleep = ft_atoi(argv[4]);

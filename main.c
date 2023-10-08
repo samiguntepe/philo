@@ -6,7 +6,7 @@
 /*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 14:27:16 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/10/07 18:50:21 by sguntepe         ###   ########.fr       */
+/*   Updated: 2023/10/08 16:38:19 by sguntepe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,10 @@ int	main(int argc, char **argv)
 	t_philo	*philos;
 	if (argc < 5 || argc > 6)
 		return (0);
-	args.first_time = get_time(&args);
+	args.first_time = get_time();
 	philos = malloc(sizeof(t_philo) * ft_atoi(argv[1]));
 	arg_parser(argv, &args, argc);
 	if (arg_control(&args, argc) == 0)
 		return (0);
 	inits(&args, philos);
-	wait_time(philos, 10000);
 }

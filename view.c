@@ -6,7 +6,7 @@
 /*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 17:36:52 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/10/07 21:05:47 by sguntepe         ###   ########.fr       */
+/*   Updated: 2023/10/08 17:30:16 by sguntepe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	*view(void *arg)
 		i = 0;
 		while (i < philos->args->number_of_philosophers)
 		{
-			if (get_time(philos->args) - philos[i].last_eat > philos->args->time_to_die)
+			if (get_time() - philos[i].last_eat > philos->args->time_to_die)
 			{
 				write_term(philos->id, 5, philos);
 				philos->args->died = 1;
@@ -32,6 +32,8 @@ void	*view(void *arg)
 			}
 			i++;
 		}
+		if (philos->args->number_of_philosophers < 2 && philos->args->died == 1)
+			break ;
 	}
 	return (NULL);
 }

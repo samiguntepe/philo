@@ -6,7 +6,7 @@
 /*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 14:27:23 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/10/09 19:54:50 by sguntepe         ###   ########.fr       */
+/*   Updated: 2023/10/09 20:03:13 by sguntepe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,17 +30,17 @@
 
 typedef struct s_arg
 {
+	pthread_mutex_t	*forks;
+	pthread_mutex_t	write;
+	pthread_mutex_t	mutex_die;
+	pthread_mutex_t	mutex_eat;
+	pthread_mutex_t	mutex_last_eat;
+	pthread_mutex_t	mutex_full;
 	int				number_of_philosophers;
 	int				number_of_must_eat;
 	int				time_to_die;
 	int				time_to_eat;
 	int				time_to_sleep;
-	pthread_mutex_t	*forks;
-	pthread_mutex_t	write;
-	pthread_mutex_t mutex_die;
-	pthread_mutex_t mutex_eat;
-	pthread_mutex_t mutex_last_eat;
-	pthread_mutex_t mutex_full;
 	int				full;
 	long			first_time;
 	int				died;
@@ -56,7 +56,6 @@ typedef struct s_philo
 	int				eat_count;
 	long			last_eat;
 	t_arg			*args;
-	
 }	t_philo;
 
 long		get_time(void);

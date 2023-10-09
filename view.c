@@ -6,7 +6,7 @@
 /*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 17:36:52 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/10/09 20:12:16 by sguntepe         ###   ########.fr       */
+/*   Updated: 2023/10/09 20:29:45 by sguntepe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	*view(void *arg)
 	while (!check_food(philos, 0))
 	{
 		i = 0;
-		while (i++ < philos->args->number_of_philosophers)
+		while (i < philos->args->number_of_philosophers)
 		{
 			pthread_mutex_lock(&philos->args->mutex_last_eat);
 			if (get_time() - philos[i].last_eat > philos->args->time_to_die)

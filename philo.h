@@ -6,7 +6,7 @@
 /*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 14:27:23 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/10/08 17:15:42 by sguntepe         ###   ########.fr       */
+/*   Updated: 2023/10/09 19:54:50 by sguntepe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,14 @@ typedef struct s_arg
 	int				time_to_sleep;
 	pthread_mutex_t	*forks;
 	pthread_mutex_t	write;
-	pthread_mutex_t	end;
+	pthread_mutex_t mutex_die;
+	pthread_mutex_t mutex_eat;
+	pthread_mutex_t mutex_last_eat;
+	pthread_mutex_t mutex_full;
 	int				full;
 	long			first_time;
 	int				died;
+	int				write_died;
 }	t_arg;
 
 typedef struct s_philo
@@ -67,7 +71,7 @@ void		eating(t_philo *philos);
 void		*dinner(void *arg);
 void		write_term(int philo_num, int ans, t_philo *philos);
 void		*view(void *arg);
-int			check_food(t_philo *philos);
+int			check_food(t_philo *philos, int i);
 void		wait_time(t_philo *philos, int wait_time);
 
 #endif

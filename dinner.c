@@ -6,7 +6,7 @@
 /*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 18:48:18 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/10/08 17:36:15 by sguntepe         ###   ########.fr       */
+/*   Updated: 2023/10/09 19:57:56 by sguntepe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,24 @@
 
 void	*dinner(void *arg)
 {
-	t_philo *philos;
+	t_philo	*philos;
 
 	philos = (t_philo *)arg;
 	if (philos->args->number_of_philosophers < 2)
 		return (NULL);
 	if (philos->id % 2 != 0)
 		usleep(1500);
-	while (philos->args->died != 1)
+	while (1)
 	{
+		pthread_mutex_lock(&philos->args->mutex_die);
+		if (philos->args->died == 1 && philos->eat_count
+			>= philos->args->number_of_must_eat)
+		{
+			pthread_mutex_unlock(&philos->args->mutex_die);
+			break ;
+		}
+		pthread_mutex_unlock(&philos->args->mutex_die);
 		eating(philos);
-		printf("%d\n",philos->args->died);
 		write_term(philos->id, 3, philos);
 		wait_time(philos, philos->args->time_to_sleep);
 		write_term(philos->id, 4, philos);

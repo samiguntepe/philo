@@ -6,7 +6,7 @@
 /*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 16:57:29 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/10/08 17:02:40 by sguntepe         ###   ########.fr       */
+/*   Updated: 2023/10/09 18:54:11 by sguntepe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,12 @@
 
 void	write_term(int philo_num, int ans, t_philo *philos)
 {
-	if (philos->args->died == 1)
-		return ;
 	pthread_mutex_lock(&philos->args->write);
+	if (philos->args->write_died == 1)
+	{
+		pthread_mutex_unlock(&philos->args->write);
+		return ;
+	}
 	printf(SPC"%ld ms"END, get_time() - philos->args->first_time);
 	printf(PURPLE" %d"END, philo_num);
 	if (ans == 1)
@@ -28,7 +31,10 @@ void	write_term(int philo_num, int ans, t_philo *philos)
 	else if (ans == 4)
 		printf(CYAN" is thinking");
 	else if (ans == 5)
+	{
+		philos->args->write_died = 1;
 		printf(RED" died"END);
+	}
 	printf("\n");
 	pthread_mutex_unlock(&philos->args->write);
 }

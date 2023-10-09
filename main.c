@@ -6,7 +6,7 @@
 /*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 14:27:16 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/10/08 16:38:19 by sguntepe         ###   ########.fr       */
+/*   Updated: 2023/10/09 19:52:58 by sguntepe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ int	main(int argc, char **argv)
 {
 	t_arg	args;
 	t_philo	*philos;
+
 	if (argc < 5 || argc > 6)
 		return (0);
 	args.first_time = get_time();

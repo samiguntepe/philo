@@ -6,7 +6,7 @@
 /*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 17:04:48 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/10/08 17:15:32 by sguntepe         ###   ########.fr       */
+/*   Updated: 2023/10/09 19:52:38 by sguntepe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	init_philo(t_arg *args, t_philo *philos)
 		philos[i].left_f = i;
 		philos[i].right_f = i +1;
 		philos[i].eat_count = 0;
-		philos[i].last_eat =  get_time();
+		philos[i].last_eat = get_time();
 		philos[i].args = args;
 		i++;
 	}
@@ -59,6 +59,10 @@ void	init_forks(t_arg *args, int philo_count)
 
 	args->forks = malloc(sizeof(pthread_mutex_t) * philo_count);
 	pthread_mutex_init(&args->write, NULL);
+	pthread_mutex_init(&args->mutex_die, NULL);
+	pthread_mutex_init(&args->mutex_eat, NULL);
+	pthread_mutex_init(&args->mutex_last_eat, NULL);
+	pthread_mutex_init(&args->mutex_full, NULL);
 	i = 0;
 	while (i < philo_count)
 	{
@@ -66,10 +70,12 @@ void	init_forks(t_arg *args, int philo_count)
 		i++;
 	}
 }
+
 void	inits(t_arg	*args, t_philo *philos)
 {
 	args->died = 0;
 	args->full = 0;
+	args->write_died = 0;
 	init_philo(args, philos);
 	init_forks(args, args->number_of_philosophers);
 	init_threads(philos, args->number_of_philosophers);

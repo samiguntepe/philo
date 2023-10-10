@@ -6,7 +6,7 @@
 /*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 13:11:32 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/10/09 19:51:30 by sguntepe         ###   ########.fr       */
+/*   Updated: 2023/10/10 17:25:37 by sguntepe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,4 +28,21 @@ int	arg_control(t_arg *args, int argc)
 			return (0);
 	}
 	return (1);
+}
+
+int	control(char **argv)
+{
+	int	i;
+
+	i = 0;
+	while (argv[i])
+	{
+		if (argv[i][0] == '-')
+		{
+			write(2, RED"Error\n"END, 13);
+			return (1);
+		}
+		i++;
+	}
+	return (0);
 }

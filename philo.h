@@ -6,7 +6,7 @@
 /*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 14:27:23 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/10/10 16:34:55 by sguntepe         ###   ########.fr       */
+/*   Updated: 2023/10/10 17:23:40 by sguntepe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,5 +74,6 @@ void		*view(void *arg);
 int			check_food(t_philo *philos, int i);
 void		wait_time(t_philo *philos, int wait_time);
 int			one_die_check(t_philo *philos);
+int			control(char **argv);
 
 #endif

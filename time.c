@@ -6,11 +6,12 @@
 /*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 18:51:29 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/10/09 17:51:01 by sguntepe         ###   ########.fr       */
+/*   Updated: 2023/10/11 15:11:37 by sguntepe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+#include <sys/time.h>
 
 long	get_time(void)
 {

@@ -6,11 +6,12 @@
 /*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 17:36:52 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/10/10 16:42:15 by sguntepe         ###   ########.fr       */
+/*   Updated: 2023/10/11 15:15:44 by sguntepe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+#include <pthread.h>
 
 void	*view(void *arg)
 {

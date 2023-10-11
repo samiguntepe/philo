@@ -6,11 +6,13 @@
 /*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 18:48:18 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/10/10 16:45:08 by sguntepe         ###   ########.fr       */
+/*   Updated: 2023/10/11 15:41:53 by sguntepe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+#include <unistd.h>
+#include <pthread.h>
 
 void	*dinner(void *arg)
 {
@@ -38,5 +40,6 @@ void	*dinner(void *arg)
 		wait_time(philos, philos->args->time_to_sleep);
 		write_term(philos->id, 4, philos);
 	}
+	free_memory(philos);
 	return (NULL);
 }

@@ -1,31 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   leaks.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/31 14:27:16 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/10/11 15:42:15 by sguntepe         ###   ########.fr       */
+/*   Created: 2023/10/11 14:52:19 by sguntepe          #+#    #+#             */
+/*   Updated: 2023/10/11 15:39:04 by sguntepe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 #include <stdlib.h>
+#include <pthread.h>
 
-int	main(int argc, char **argv)
+void	free_memory(t_philo *philos)
 {
-	t_arg	args;
-	t_philo	*philos;
+	int	i;
 
-	if (argc < 5 || argc > 6)
-		return (0);
-	if (control(argv))
-		return (0);
-	args.first_time = get_time();
-	philos = malloc(sizeof(t_philo) * ft_atoi(argv[1]));
-	arg_parser(argv, &args, argc);
-	if (arg_control(&args, argc) == 0)
-		return (0);
-	inits(&args, philos);
+	i = 0;
+	while(i < philos->args->number_of_philosophers)
+	{
+		pthread_mutex_destroy(&philos->args->forks[i]);
+		i++;
+	}
+	free(philos);
+	free(philos->args->forks);
 }

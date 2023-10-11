@@ -6,11 +6,13 @@
 /*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 15:01:55 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/10/10 15:45:00 by sguntepe         ###   ########.fr       */
+/*   Updated: 2023/10/11 15:14:52 by sguntepe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+#include <pthread.h>
+#include <unistd.h>
 
 int	eating(t_philo *philos)
 {

@@ -6,11 +6,12 @@
 /*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 23:28:05 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/10/09 19:59:13 by sguntepe         ###   ########.fr       */
+/*   Updated: 2023/10/11 15:15:37 by sguntepe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+#include <pthread.h>
 
 int	ft_atoi(const char *str)
 {

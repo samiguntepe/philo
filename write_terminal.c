@@ -6,11 +6,13 @@
 /*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 16:57:29 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/10/10 15:27:35 by sguntepe         ###   ########.fr       */
+/*   Updated: 2023/10/11 15:15:55 by sguntepe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+#include <stdio.h>
+#include <pthread.h>
 
 void	write_term(int philo_num, int ans, t_philo *philos)
 {

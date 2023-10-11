@@ -6,11 +6,13 @@
 /*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 17:04:48 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/10/09 19:52:38 by sguntepe         ###   ########.fr       */
+/*   Updated: 2023/10/11 15:30:50 by sguntepe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+#include <stdlib.h>
+#include <pthread.h>
 
 void	init_threads(t_philo *philos, int philo_count)
 {
@@ -58,6 +60,8 @@ void	init_forks(t_arg *args, int philo_count)
 	int	i;
 
 	args->forks = malloc(sizeof(pthread_mutex_t) * philo_count);
+	if (!args->forks)
+		free(args->forks);
 	pthread_mutex_init(&args->write, NULL);
 	pthread_mutex_init(&args->mutex_die, NULL);
 	pthread_mutex_init(&args->mutex_eat, NULL);

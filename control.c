@@ -6,11 +6,12 @@
 /*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 13:11:32 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/10/10 17:25:37 by sguntepe         ###   ########.fr       */
+/*   Updated: 2023/10/11 15:12:31 by sguntepe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+#include <unistd.h>
 
 int	arg_control(t_arg *args, int argc)
 {

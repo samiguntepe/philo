@@ -6,7 +6,7 @@
 /*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 14:27:16 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/10/11 16:42:02 by sguntepe         ###   ########.fr       */
+/*   Updated: 2023/10/11 18:16:29 by sguntepe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int	main(int argc, char **argv)
 	t_arg	args;
 	t_philo	*philos;
 
+	args.died = 0;
 	if (argc < 5 || argc > 6)
 		return (0);
 	if (control(argv))

@@ -6,7 +6,7 @@
 /*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 17:04:48 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/10/11 17:14:45 by sguntepe         ###   ########.fr       */
+/*   Updated: 2023/10/11 18:10:10 by sguntepe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,14 +55,14 @@ void	init_philo(t_arg *args, t_philo *philos)
 	philos[i -1].right_f = 0;
 }
 
-int	init_forks(t_arg *args, int philo_count)
+void	init_forks(t_arg *args, int philo_count)
 {
 	int	i;
 
 	args->forks = malloc(sizeof(pthread_mutex_t) * philo_count);
 	if (!args->forks)
 		free(args->forks);
-	if (pthread_mutex_init(&args->write, NULL));
+	pthread_mutex_init(&args->write, NULL);
 	pthread_mutex_init(&args->mutex_die, NULL);
 	pthread_mutex_init(&args->mutex_eat, NULL);
 	pthread_mutex_init(&args->mutex_last_eat, NULL);
@@ -75,7 +75,7 @@ int	init_forks(t_arg *args, int philo_count)
 	}
 }
 
-int	inits(t_arg	*args, t_philo *philos)
+void	inits(t_arg	*args, t_philo *philos)
 {
 	args->died = 0;
 	args->full = 0;

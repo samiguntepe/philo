@@ -6,7 +6,7 @@
 /*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 14:27:23 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/10/12 20:05:15 by sguntepe         ###   ########.fr       */
+/*   Updated: 2023/10/12 20:31:06 by sguntepe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define PHILO_H
 
 # include <pthread.h>
-#include <stdio.h>
 
 # define CYAN		"\033[0;36m"
 # define PURPLE		"\033[0;35m"
@@ -74,5 +73,7 @@ int			one_die_check(t_philo *philos);
 int			control(char **argv);
 void		free_memory(t_philo *philos);
 int			sleep_and_think(t_philo *philos);
+void		eating_next(t_philo *philos);
+void		view_next(t_philo *philos);
 
 #endif

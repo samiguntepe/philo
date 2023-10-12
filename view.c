@@ -6,7 +6,7 @@
 /*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 17:36:52 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/10/12 15:36:34 by sguntepe         ###   ########.fr       */
+/*   Updated: 2023/10/12 20:30:54 by sguntepe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,7 @@ void	*view(void *arg)
 				> philos->args->time_to_die)
 			{
 				pthread_mutex_unlock(&philos->args->mutex_last_eat);
-				write_term(philos->id, 5, philos);
-				pthread_mutex_lock(&philos->args->mutex_die);
-				philos->args->died = 1;
-				pthread_mutex_unlock(&philos->args->mutex_die);
+				view_next(philos);
 				return (NULL);
 			}
 			else
@@ -41,6 +38,14 @@ void	*view(void *arg)
 			break ;
 	}
 	return (NULL);
+}
+
+void	view_next(t_philo *philos)
+{
+	write_term(philos->id, 5, philos);
+	pthread_mutex_lock(&philos->args->mutex_die);
+	philos->args->died = 1;
+	pthread_mutex_unlock(&philos->args->mutex_die);
 }
 
 int	one_die_check(t_philo *philos)

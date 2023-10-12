@@ -6,7 +6,7 @@
 /*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 18:48:18 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/10/12 20:06:47 by sguntepe         ###   ########.fr       */
+/*   Updated: 2023/10/12 20:28:11 by sguntepe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ void	*dinner(void *arg)
 	}
 	while (1)
 	{
-		if (philos->eat_count < philos->args->number_of_must_eat)
+		if (philos->eat_count < philos->args->number_of_must_eat
+			|| philos->args->number_of_must_eat == 0)
 		{
 			if (eating(philos))
 				break ;
@@ -36,6 +37,7 @@ void	*dinner(void *arg)
 	}
 	return (NULL);
 }
+
 int	sleep_and_think(t_philo *philos)
 {
 	pthread_mutex_lock(&philos->args->mutex_die);

@@ -6,7 +6,7 @@
 /*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 15:01:55 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/10/12 20:09:50 by sguntepe         ###   ########.fr       */
+/*   Updated: 2023/10/12 20:24:05 by sguntepe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,17 @@ int	eating(t_philo *philos)
 		pthread_mutex_unlock(&philos->args->forks[philos->left_f]);
 		return (1);
 	}
+	eating_next(philos);
+	if (philos->args->number_of_philosophers >= 2)
+	{
+		pthread_mutex_unlock(&philos->args->forks[philos->left_f]);
+		pthread_mutex_unlock(&philos->args->forks[philos->right_f]);
+	}
+	return (0);
+}
+
+void	eating_next(t_philo *philos)
+{
 	write_term(philos->id, 2, philos);
 	pthread_mutex_lock(&philos->args->mutex_last_eat);
 	philos->last_eat = get_time();
@@ -36,12 +47,6 @@ int	eating(t_philo *philos)
 	pthread_mutex_lock(&philos->args->mutex_eat);
 	philos->eat_count++;
 	pthread_mutex_unlock(&philos->args->mutex_eat);
-	if (philos->args->number_of_philosophers >= 2)
-	{
-		pthread_mutex_unlock(&philos->args->forks[philos->left_f]);
-		pthread_mutex_unlock(&philos->args->forks[philos->right_f]);
-	}
-	return (0);
 }
 
 void	wait_time(t_philo *philos, int wait_time)

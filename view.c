@@ -6,7 +6,7 @@
 /*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 17:36:52 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/10/11 15:15:44 by sguntepe         ###   ########.fr       */
+/*   Updated: 2023/10/12 15:36:34 by sguntepe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,8 @@ void	*view(void *arg)
 				pthread_mutex_unlock(&philos->args->mutex_die);
 				return (NULL);
 			}
-			pthread_mutex_unlock(&philos->args->mutex_last_eat);
+			else
+				pthread_mutex_unlock(&philos->args->mutex_last_eat);
 		}
 		if (one_die_check(philos))
 			break ;
@@ -50,6 +51,7 @@ int	one_die_check(t_philo *philos)
 		pthread_mutex_unlock(&philos->args->mutex_die);
 		return (1);
 	}
-	pthread_mutex_unlock(&philos->args->mutex_die);
+	else
+		pthread_mutex_unlock(&philos->args->mutex_die);
 	return (0);
 }

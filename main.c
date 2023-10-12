@@ -6,7 +6,7 @@
 /*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 14:27:16 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/10/11 18:16:29 by sguntepe         ###   ########.fr       */
+/*   Updated: 2023/10/12 15:27:26 by sguntepe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ int	main(int argc, char **argv)
 		free_memory(philos);
 		return (0);
 	}
-	inits(&args, philos);
+	if (inits(&args, philos))
+		return (1);
 	free_memory(philos);
 }

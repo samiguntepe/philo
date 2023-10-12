@@ -6,7 +6,7 @@
 /*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 14:27:23 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/10/11 16:18:34 by sguntepe         ###   ########.fr       */
+/*   Updated: 2023/10/12 15:25:56 by sguntepe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PHILO_H
 
 # include <pthread.h>
+#include <stdio.h>
 
 # define CYAN		"\033[0;36m"
 # define PURPLE		"\033[0;35m"
@@ -59,10 +60,10 @@ long		get_time(void);
 int			ft_atoi(const char *str);
 int			arg_control(t_arg *args, int argc);
 void		arg_parser(char **argv, t_arg *args, int argc);
-void		init_threads(t_philo *philos, int philo_count);
+int			init_threads(t_philo *philos, int philo_count);
 void		init_philo(t_arg *args, t_philo *philos);
-void		init_forks(t_arg *args, int philo_count);
-void		inits(t_arg	*args, t_philo *philos);
+int			init_forks(t_arg *args, int philo_count);
+int			inits(t_arg	*args, t_philo *philos);
 int			eating(t_philo *philos);
 void		*dinner(void *arg);
 void		write_term(int philo_num, int ans, t_philo *philos);

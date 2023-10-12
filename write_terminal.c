@@ -6,7 +6,7 @@
 /*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 16:57:29 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/10/11 15:15:55 by sguntepe         ###   ########.fr       */
+/*   Updated: 2023/10/12 15:47:24 by sguntepe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,9 @@ void	write_term(int philo_num, int ans, t_philo *philos)
 	{
 		philos->args->write_died = 1;
 		printf(RED" died"END);
+		pthread_mutex_unlock(&philos->args->write);
 	}
 	printf("\n");
-	pthread_mutex_unlock(&philos->args->write);
+	if (philos->args->write_died != 1)
+		pthread_mutex_unlock(&philos->args->write);
 }

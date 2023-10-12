@@ -6,7 +6,7 @@
 /*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 15:01:55 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/10/11 15:14:52 by sguntepe         ###   ########.fr       */
+/*   Updated: 2023/10/12 16:15:45 by sguntepe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,11 @@ int	eating(t_philo *philos)
 	pthread_mutex_lock(&philos->args->mutex_eat);
 	philos->eat_count++;
 	pthread_mutex_unlock(&philos->args->mutex_eat);
-	pthread_mutex_unlock(&philos->args->forks[philos->left_f]);
 	if (philos->args->number_of_philosophers >= 2)
+	{
+		pthread_mutex_unlock(&philos->args->forks[philos->left_f]);
 		pthread_mutex_unlock(&philos->args->forks[philos->right_f]);
+	}
 	return (0);
 }
 
@@ -53,7 +55,10 @@ void	wait_time(t_philo *philos, int wait_time)
 		pthread_mutex_unlock(&philos->args->mutex_die);
 		usleep(40);
 		if (get_time() - time >= wait_time)
+		{
+			pthread_mutex_lock(&philos->args->mutex_die);
 			break ;
+		}
 		pthread_mutex_lock(&philos->args->mutex_die);
 	}
 	pthread_mutex_unlock(&philos->args->mutex_die);

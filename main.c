@@ -6,12 +6,13 @@
 /*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 14:27:16 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/10/12 15:27:26 by sguntepe         ###   ########.fr       */
+/*   Updated: 2023/10/12 20:39:06 by sguntepe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 #include <stdlib.h>
+#include <unistd.h>
 
 int	main(int argc, char **argv)
 {
@@ -30,7 +31,8 @@ int	main(int argc, char **argv)
 	arg_parser(argv, &args, argc);
 	if (arg_control(&args, argc) == 0)
 	{
-		free_memory(philos);
+		free(philos);
+		write(2, RED"Error\n"END, 13);
 		return (0);
 	}
 	if (inits(&args, philos))

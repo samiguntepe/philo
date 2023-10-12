@@ -6,7 +6,7 @@
 /*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 18:48:18 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/10/12 16:07:33 by sguntepe         ###   ########.fr       */
+/*   Updated: 2023/10/12 20:06:47 by sguntepe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,19 +26,28 @@ void	*dinner(void *arg)
 	}
 	while (1)
 	{
-		if (eating(philos))
-			break ;
-		pthread_mutex_lock(&philos->args->mutex_die);
-		if (philos->args->died == 1 && philos->eat_count
-			>= philos->args->number_of_must_eat)
+		if (philos->eat_count < philos->args->number_of_must_eat)
 		{
-			pthread_mutex_unlock(&philos->args->mutex_die);
-			break ;
+			if (eating(philos))
+				break ;
 		}
-		pthread_mutex_unlock(&philos->args->mutex_die);
-		write_term(philos->id, 3, philos);
-		wait_time(philos, philos->args->time_to_sleep);
-		write_term(philos->id, 4, philos);
+		if (sleep_and_think(philos))
+			return (NULL);
 	}
 	return (NULL);
+}
+int	sleep_and_think(t_philo *philos)
+{
+	pthread_mutex_lock(&philos->args->mutex_die);
+	if (philos->args->died == 1 && philos->eat_count
+		>= philos->args->number_of_must_eat)
+	{
+		pthread_mutex_unlock(&philos->args->mutex_die);
+		return (1);
+	}
+	pthread_mutex_unlock(&philos->args->mutex_die);
+	write_term(philos->id, 3, philos);
+	wait_time(philos, philos->args->time_to_sleep);
+	write_term(philos->id, 4, philos);
+	return (0);
 }

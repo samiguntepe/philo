@@ -6,7 +6,7 @@
 /*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 14:27:23 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/10/12 15:25:56 by sguntepe         ###   ########.fr       */
+/*   Updated: 2023/10/12 20:05:15 by sguntepe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,5 +73,6 @@ void		wait_time(t_philo *philos, int wait_time);
 int			one_die_check(t_philo *philos);
 int			control(char **argv);
 void		free_memory(t_philo *philos);
+int			sleep_and_think(t_philo *philos);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 17:04:48 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/10/12 15:25:46 by sguntepe         ###   ########.fr       */
+/*   Updated: 2023/10/13 13:06:59 by sguntepe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,27 +60,27 @@ void	init_philo(t_arg *args, t_philo *philos)
 	philos[i -1].right_f = 0;
 }
 
-int	init_forks(t_arg *args, int philo_count)
+int	init_forks(t_philo *philos, int philo_count)
 {
 	int	i;
 
-	args->forks = malloc(sizeof(pthread_mutex_t) * philo_count);
-	if (!args->forks)
-		return (1);
-	if (pthread_mutex_init(&args->write, NULL) != 0)
-		return (1);
-	if (pthread_mutex_init(&args->mutex_die, NULL) != 0)
-		return (1);
-	if (pthread_mutex_init(&args->mutex_eat, NULL) != 0)
-		return (1);
-	if (pthread_mutex_init(&args->mutex_last_eat, NULL) != 0)
-		return (1);
-	if (pthread_mutex_init(&args->mutex_full, NULL) != 0)
-		return (1);
+	philos->args->forks = malloc(sizeof(pthread_mutex_t) * philo_count);
+	if (!philos->args->forks)
+		return (free(philos), 1);
+	if (pthread_mutex_init(&philos->args->write, NULL) != 0)
+		return (free_forks(&philos->args->write, philos, 0));
+	if (pthread_mutex_init(&philos->args->mutex_die, NULL) != 0)
+		return (free_forks(&philos->args->mutex_die, philos, 0));
+	if (pthread_mutex_init(&philos->args->mutex_eat, NULL) != 0)
+		return (free_forks(&philos->args->mutex_eat, philos, 0));
+	if (pthread_mutex_init(&philos->args->mutex_last_eat, NULL) != 0)
+		return (free_forks(&philos->args->mutex_last_eat, philos, 0));
+	if (pthread_mutex_init(&philos->args->mutex_full, NULL) != 0)
+		return (free_forks(&philos->args->mutex_full, philos, 0));
 	i = 0;
 	while (i < philo_count)
 	{
-		if (pthread_mutex_init(&args->forks[i], NULL) != 0)
+		if (pthread_mutex_init(&philos->args->forks[i], NULL) != 0)
 			return (1);
 		i++;
 	}
@@ -93,9 +93,12 @@ int	inits(t_arg	*args, t_philo *philos)
 	args->full = 0;
 	args->write_died = 0;
 	init_philo(args, philos);
-	if (init_forks(args, args->number_of_philosophers))
+	if (init_forks(philos, args->number_of_philosophers))
 		return (1);
 	if (init_threads(philos, args->number_of_philosophers))
+	{
+		free_memory(philos, 2);
 		return (1);
+	}
 	return (0);
 }

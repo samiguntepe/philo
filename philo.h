@@ -6,7 +6,7 @@
 /*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 14:27:23 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/10/12 20:31:06 by sguntepe         ###   ########.fr       */
+/*   Updated: 2023/10/13 13:04:55 by sguntepe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ int			arg_control(t_arg *args, int argc);
 void		arg_parser(char **argv, t_arg *args, int argc);
 int			init_threads(t_philo *philos, int philo_count);
 void		init_philo(t_arg *args, t_philo *philos);
-int			init_forks(t_arg *args, int philo_count);
+int			init_forks(t_philo *philos, int philo_count);
 int			inits(t_arg	*args, t_philo *philos);
 int			eating(t_philo *philos);
 void		*dinner(void *arg);
@@ -71,9 +71,10 @@ int			check_food(t_philo *philos, int i);
 void		wait_time(t_philo *philos, int wait_time);
 int			one_die_check(t_philo *philos);
 int			control(char **argv);
-void		free_memory(t_philo *philos);
+void		free_memory(t_philo *philos, int ans);
 int			sleep_and_think(t_philo *philos);
 void		eating_next(t_philo *philos);
 void		view_next(t_philo *philos);
+int			free_forks(pthread_mutex_t *mutex, t_philo *philos, int ans);
 
 #endif
